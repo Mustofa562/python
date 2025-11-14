@@ -22,3 +22,4 @@ print('total stok tiap produk',stok.sum(axis=0))
 print('rata-rata stok tiap produk',stok.mean(axis=0))
 print('produk dengan stok lebih tinggi',df['stok'].max())
 
+
