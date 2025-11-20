@@ -38,3 +38,23 @@ nilai = [10, 15, 7, 12]
 error = [1.5, 2, 1, 1.8]
 plt.errorbar(x,nilai,yerr=error,fmt='-o',capsize=5, color='blue')
 plt.show()
+
+#boxplot
+lis = np.random.randint(1,10,100)
+plt.boxplot(lis)
+plt.title('Sebaran nilai')
+plt.show()
+
+#heatmap dengan imshow
+acak = np.random.randint(1,9,(5,5))
+plt.imshow(acak)
+plt.colorbar()
+plt.show()
+
+#plot dengan anotasi
+data1 = [30,31,29,28,32]
+data2 = [50,80,60,30,100]
+
+plt.plot(data1,data2,marker='o')
+plt.annotate('ini titik penting',xy=(32,100),xytext=(32.5,101),arrowprops=dict(arrowstyle='->'))
+plt.show()
