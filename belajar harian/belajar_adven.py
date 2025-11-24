@@ -25,5 +25,21 @@ plt.title('Grouped bar chart')
 plt.show()
 
 #polar plot
-a = np.linspace(0,2*np.pi)
-print(a)
+a = np.linspace(0,2*np.pi,10)
+r = np.random.randint(1,10, size=10)
+
+plt.polar(a,r)
+plt.title("Polar Scatter Plot")
+plt.show()
+
+#Countour plot
+import numpy as np
+
+x = np.linspace(-3,3,200)
+y = np.linspace(-3,3,200)
+X, Y = np.meshgrid(x,y)
+Z = np.sin(np.sqrt(X**2 + Y**2))
+
+plt.contourf(X,Y,Z)
+plt.colorbar()
+plt.show()
