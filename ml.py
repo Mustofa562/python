@@ -1,4 +1,6 @@
 from sklearn.linear_model import LinearRegression
+from sklearn.model_selection import train_test_split
+
 import numpy as np
 
 #data
@@ -31,3 +33,20 @@ model = LinearRegression()
 model.fit(X,y)
 pred = model.predict([[6]])
 print("prediksi nilai siswa yang belajar 6 jam", pred)
+
+#latihan training data
+
+X = np.array([[1], [2], [3], [4], [5], [6], [7], [8]])
+y = np.array([55, 60, 65, 70, 75, 80, 82, 90])
+
+X_train, X_test, y_train, y_test =train_test_split(X,y, test_size=0.25, random_state=42)
+model = LinearRegression()
+model.fit(X_train,y_train)
+y_pred = model.predict(X_test)
+score = model.score(X_test,y_test)
+
+
+print("Data testing:", X_test)
+print("Prediksi:", y_pred)
+print("Nilai sebenarnya:", y_test)
+print("Score (R²):", score)
