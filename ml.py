@@ -50,3 +50,13 @@ print("Data testing:", X_test)
 print("Prediksi:", y_pred)
 print("Nilai sebenarnya:", y_test)
 print("Score (R²):", score)
+
+# latihan lagi
+X = np.array([[2], [4], [6], [8]])
+y = np.array([10, 20, 30, 40])
+
+model = LinearRegression()
+model.fit(X, y)
+
+hasil = model.predict([[10]])
+print("Hasil prediksi:", hasil)
