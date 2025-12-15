@@ -1,6 +1,7 @@
 from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
-
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.preprocessing import StandardScaler
 import numpy as np
 
 #data
@@ -60,3 +61,56 @@ model.fit(X, y)
 
 hasil = model.predict([[10]])
 print("Hasil prediksi:", hasil)
+
+
+#latihan kkn
+X = [
+    [150, 7],
+    [170, 8],
+    [140, 6],
+    [300, 10],
+    [320, 11],
+    [280, 10]
+]
+
+y = ["apel", "apel", "apel", "jeruk", "jeruk", "jeruk"]
+
+model = KNeighborsClassifier(n_neighbors=3)
+model.fit(X,y)
+predict = model.predict([[160,7]])
+print('Hasil predict', predict)
+
+from sklearn.preprocessing import StandardScaler
+from sklearn.neighbors import KNeighborsClassifier
+
+# Data
+X = [
+    [150, 7],
+    [170, 8],
+    [140, 6],
+    [300, 10],
+    [320, 11],
+    [280, 10]
+]
+
+y = ["apel", "apel", "apel", "jeruk", "jeruk", "jeruk"]
+
+# 1. Buat scaler
+scaler = StandardScaler()
+
+# 2. Scaling data X
+X_scaled = scaler.fit_transform(X)
+
+# 3. Buat model KNN
+model = KNeighborsClassifier(n_neighbors=3)
+
+# 4. Training pakai data yang SUDAH diskalakan
+model.fit(X_scaled, y)
+
+# 5. Data baru HARUS diskalakan juga
+data_baru = scaler.transform([[160, 7]])
+
+# 6. Predict
+hasil = model.predict(data_baru)
+print("Hasil prediksi:", hasil)
+
